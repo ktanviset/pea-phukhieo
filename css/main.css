@@ -1,0 +1,400 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block
+}
+
+body {
+    line-height: 1
+}
+
+ol,
+ul {
+    list-style: none
+}
+
+blockquote,
+q {
+    quotes: none
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: "";
+    content: none
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+@font-face {
+    font-family: 'Prompt';
+    src: url('../fonts/Prompt-Regular.eot');
+    src: url('../fonts/Prompt-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Prompt-Regular.woff2') format('woff2'),
+        url('../fonts/Prompt-Regular.woff') format('woff'),
+        url('../fonts/Prompt-Regular.ttf') format('truetype'),
+        url('../fonts/Prompt-Regular.svg#Prompt-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal; 
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'Prompt';
+    src: url('../fonts/Prompt-Bold.eot');
+    src: url('../fonts/Prompt-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Prompt-Bold.woff2') format('woff2'),
+        url('../fonts/Prompt-Bold.woff') format('woff'),
+        url('../fonts/Prompt-Bold.ttf') format('truetype'),
+        url('../fonts/Prompt-Bold.svg#Prompt-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'Prompt';
+    src: url('../fonts/Prompt-Medium.eot');
+    src: url('../fonts/Prompt-Medium.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Prompt-Medium.woff2') format('woff2'),
+        url('../fonts/Prompt-Medium.woff') format('woff'),
+        url('../fonts/Prompt-Medium.ttf') format('truetype'),
+        url('../fonts/Prompt-Medium.svg#Prompt-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    --color: #6b327e
+}
+
+html {
+    font-size: 62.5%
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: "Prompt";
+    overflow: hidden
+}
+
+strong {
+    font-weight: bold
+}
+
+.container {
+    width: 100%;
+    max-width: 111rem;
+    margin: 0 auto;
+    text-align: center;
+    height: calc(100% - 9.8rem);
+    display: flex;
+    flex-direction: column
+}
+
+h1,
+h2,
+h3 {
+    font-weight: bold;
+    color: var(--color);
+    text-shadow: 0px 4px 2px rgba(0, 0, 0, .3)
+}
+
+h1 {
+    font-size: 4.2rem;
+    text-transform: uppercase
+}
+
+h2 {
+    font-size: 3.8rem;
+    margin-bottom: 2rem
+}
+
+h3 {
+    font-size: 2.8rem
+}
+
+img {
+    max-width: 100%
+}
+
+.header {
+    padding: 2rem
+}
+
+.header__logo {
+    width: 15rem;
+    display: block
+}
+
+.footer {
+    text-align: right;
+    color: var(--color);
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, .5);
+    margin-top: auto;
+    margin-bottom: 2rem
+}
+
+.login {
+    margin-top: 3rem
+}
+
+.login__img {
+    margin: 4rem 0
+}
+
+.login__title {
+    color: var(--color);
+    margin-bottom: 2rem
+}
+
+form {
+    text-align: left
+}
+
+form label {
+    color: var(--color);
+    width: 9rem;
+    text-align: left;
+    display: block;
+    position: relative
+}
+
+form label:after {
+    content: ":";
+    position: absolute;
+    right: 0;
+    font-weight: bold
+}
+
+form label.select {
+    width: 17rem;
+    font-size: 1.8rem
+}
+
+form input[type=text],
+form input[type=password] {
+    border: 3px solid var(--color);
+    margin-left: 2rem;
+    padding: .5rem
+}
+
+form input[type=text]#organization,
+form input[type=password]#organization {
+    width: 50%
+}
+
+form button,
+form .button {
+    background-color: var(--color);
+    color: #fff;
+    padding: 1rem 4rem;
+    display: block;
+    margin: 0 auto;
+    border: none
+}
+
+form .button {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 1.4rem
+}
+
+form select {
+    padding: .7rem .5rem;
+    border: 3px solid var(--color);
+    width: 30rem;
+    margin: 0 2rem
+}
+
+form .form__row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    align-items: center
+}
+
+.list {
+    border: 1px solid #000;
+    width: 62rem;
+    margin: 2rem auto 0;
+    text-align: left
+}
+
+.list li {
+    border-bottom: 1px solid #000;
+    display: flex;
+    padding: 1rem 2rem;
+    background-color: #e4e4e4;
+    color: var(--color)
+}
+
+.list li:last-child {
+    border-bottom: none
+}
+
+.list__name {
+    width: 60%;
+    color: #000
+}
+
+.list__name strong {
+    color: var(--color)
+}
+
+.list__action {
+    width: 40%;
+    text-align: right
+}
+
+.list a {
+    margin: 1rem
+}
+
+.toolbar {
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    background-color: #e4e4e4;
+    font-size: 1.8rem;
+    box-shadow: 0 3px 2px rgba(0, 0, 0, .2);
+    margin: 6rem 0
+}
+
+.toolbar__title {
+    color: var(--color)
+}
+
+.toolbar__nav {
+    display: flex;
+    margin-left: auto
+}
+
+.toolbar__exit {
+    margin-left: 1rem
+}
+
+.toolbar__exit a {
+    color: var(--color)
+}
+
+.action {
+    padding: 0 24.5rem;
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    color: var(--color)
+}
+
+.action__row {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 2rem
+}
+
+/*# sourceMappingURL=main.css.map*/

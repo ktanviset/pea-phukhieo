@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Fast Invoice service (FIS)</title>
+<script defer src="js/main.js"></script>
+<body>
+    <header class="header">
+        <a href="/" class="header__logo"><img src="images/logo.png" alt=""></a>
+    </header>
+    <div class="container">
+        <h2>ระบบงานบริการใบแจ้งค่าไฟฟ้าหน่วยงานราชการ</h2> 
+        <h1>Fast Invoice service (FIS)</h1> 
+        <div class="toolbar">
+            <div class="toolbar__title">ยินดีต้อนรับ : องค์การบริหารส่วนตำบลผักปัง</div>
+            <div class="toolbar__nav">
+                <div class="toolbar__exit"><a href="admin.html">กลับสู่หน้าหลัก</a></div>
+            </div>
+        </div>
+        <form action="doc.html">
+            <div class="form__row">
+                <div class="form__col">
+                    <label class="select" for="">กรุณาระบุบิลเดือน</label> 
+                </div>
+                <div class="form__col">
+                    <select name="organization" id="organization" >
+                        <option value="" disabled selected>กรุณาเลือกเดือนที่ต้องการ</option>
+                        <option value="มกราคม">มกราคม</option>
+                        <option value="กุมภาพันธ์">กุมภาพันธ์</option>
+                        <option value="มีนาคม">มีนาคม</option>
+                        <option value="เมษายน">เมษายน</option>
+                    </select>
+                </div>
+                <div class="form__col">
+                    <button>ตกลง</button>
+                </div>
+            </div>
+        </form>
+        <div class="action">
+            <div class="action__row"><a href="monthaction.html">จัดการเดือน</a></div>
+        </div>
+        <footer class="footer">
+            <div class="footer__detail">การไฟฟ้าส่วนภูมิภาคอำเภอภูเขียว</div>
+            <div class="footer__detail">แผนกบัญชีและประมวลผล</div>
+            <div class="footer__detail">เบอร์ติดต่อ 044-861-033</div>
+        </footer>
+    </div>
+</body>
+</html>
