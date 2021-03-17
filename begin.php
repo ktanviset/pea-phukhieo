@@ -52,6 +52,11 @@ require_once 'system/islogin.php';
             <div class="action__row"><a href="districtaction.php">จัดการอำเภอ</a></div>
             <?php } ?>
         </div>
+        <div class="action">
+            <?php if (SC::get('role') == 'admin') { ?>
+            <div class="action__row"><a href="user.php">จัดการผู้ใช้</a></div>
+            <?php } ?>
+        </div>
         <footer class="footer">
             <div class="footer__detail">การไฟฟ้าส่วนภูมิภาคอำเภอภูเขียว</div>
             <div class="footer__detail">แผนกบัญชีและประมวลผล</div>
