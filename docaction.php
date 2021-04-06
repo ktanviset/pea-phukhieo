@@ -57,6 +57,7 @@ if (isset($_POST['doc_post'])){
             $data['name'] = $_POST['doc_name'];
             $data['organization_id'] = $_POST['organization_id'];
             $data['modifiedby'] = $currentUserName;
+            $data['bill_date'] = $_POST['bill_date'];
             if ($updatefile){
                 $data['location'] = $destination;
                 $data['filetype'] = $extension;
@@ -95,6 +96,7 @@ if (isset($_POST['doc_post'])){
                     $data['filetype'] = $extension;
                     $data['createdby'] = $currentUserName;
                     $data['modifiedby'] = $currentUserName;
+                    $data['bill_date'] = $_POST['bill_date'];
                     $record_id = DB::insert('file_upload', $data);
                 } else {
                     $err = true;
@@ -125,6 +127,7 @@ if (isset($_POST['doc_delete'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="js/jojosati-bootstrap-datepicker-thai/datepicker.css">
     <title>Fast Invoice service (FIS)</title>
     <script defer src="js/main.js"></script>
 </head>
@@ -157,12 +160,14 @@ if (isset($_POST['doc_delete'])){
                         <input type="hidden" class="modal-param" name="doc_id" value="<?php echo $file['id']; ?>">
                         <input type="hidden" class="modal-param" name="doc_name" value="<?php echo $file['name']; ?>">
                         <input type="hidden" class="modal-param" name="organization_id" value="<?php echo $file['organization_id']; ?>">
+                        <input type="hidden" class="modal-param" name="bill_date" value="<?php echo $file['bill_date']; ?>">
                     </a>
                     <a href="#deleteDataModal" class="toggle-modal" data-toggle="modal" data-target="#deleteDataModal">
                         ลบ
                         <input type="hidden" class="modal-param" name="doc_id" value="<?php echo $file['id']; ?>">
                         <input type="hidden" class="modal-param" name="doc_name" value="<?php echo $file['name']; ?>">
                         <input type="hidden" class="modal-param" name="organization_name" value="<?php echo $file['organization_name']; ?>">
+                        <input type="hidden" class="modal-param" name="bill_date" value="<?php echo $file['bill_date']; ?>">
                     </a>
                 </div>
             </li>
@@ -192,6 +197,8 @@ if (isset($_POST['doc_delete'])){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="js/modalparam.js"></script>
+    <script src="js/jojosati-bootstrap-datepicker-thai/bootstrap-datepicker.js"></script>
+    <script src="js/jojosati-bootstrap-datepicker-thai/locales/bootstrap-datepicker.th.js"></script>
     <?php if (SC::get('file_upload_error')) { ?>
     <script>
     $(function() {
@@ -246,6 +253,14 @@ if (isset($_POST['doc_delete'])){
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-sm-4" style="margin: auto;">
+                                <strong>วันที่บิล:</strong>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="bill_date" style="margin: auto; width: 25rem;" data-provide="datepicker" data-date-language="th" data-date-format="yyyy-mm-dd" readonly="readonly" >
+                            </div>
+                        </div>
+                        <div class="row">
                             <div class="col">
                                 <input type="file" name="doc_file"  id="doc_file">
                             </div>
@@ -289,6 +304,14 @@ if (isset($_POST['doc_delete'])){
                             </div>
                             <div class="col-sm-8">
                                 <input type="text" name="organization_name" readonly style="margin: auto; width: 25rem;">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4" style="margin: auto;">
+                                <strong>วันที่บิล:</strong>
+                            </div>
+                            <div class="col-sm-8">
+                                <input type="text" name="bill_date" readonly style="margin: auto; width: 25rem;">
                             </div>
                         </div>
                     </div>

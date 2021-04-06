@@ -61,8 +61,9 @@ CREATE TABLE `file_upload` (
   `modifiedby` varchar(50) COLLATE utf8_bin DEFAULT NULL,
   `createdon` datetime DEFAULT CURRENT_TIMESTAMP,
   `modifiedon` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `bill_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,7 +72,7 @@ CREATE TABLE `file_upload` (
 
 LOCK TABLES `file_upload` WRITE;
 /*!40000 ALTER TABLE `file_upload` DISABLE KEYS */;
-INSERT INTO `file_upload` VALUES (1,'dfdfwettgdfg','uploads/604f52fac5f2b.docx','docx',6,'admin01','admin01','2021-03-15 19:28:42','2021-03-15 19:45:38');
+INSERT INTO `file_upload` VALUES (1,'dfdfwettgdfg','uploads/604f52fac5f2b.docx','docx',6,'admin01','admin01','2021-03-15 19:28:42','2021-04-07 04:24:58','2021-04-09 00:00:00'),(3,'rughjjhj','uploads/606cd1fd9148b.pdf','pdf',1,'admin01','admin01','2021-04-07 04:26:21',NULL,'2021-03-30 00:00:00');
 /*!40000 ALTER TABLE `file_upload` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -159,6 +160,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `modifiedby`,
  1 AS `createdon`,
  1 AS `modifiedon`,
+ 1 AS `bill_date`,
  1 AS `organization_name`,
  1 AS `month`,
  1 AS `monthval`,
@@ -211,7 +213,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vw_file_upload_detail` AS select `f`.`id` AS `id`,`f`.`name` AS `name`,`f`.`location` AS `location`,`f`.`filetype` AS `filetype`,`f`.`organization_id` AS `organization_id`,`f`.`createdby` AS `createdby`,`f`.`modifiedby` AS `modifiedby`,`f`.`createdon` AS `createdon`,`f`.`modifiedon` AS `modifiedon`,`o`.`name` AS `organization_name`,date_format(`f`.`createdon`,'%M') AS `month`,date_format(`f`.`createdon`,'%m') AS `monthval`,date_format(`f`.`createdon`,'%Y') AS `year` from (`file_upload` `f` join `organization` `o` on((`o`.`id` = `f`.`organization_id`))) */;
+/*!50001 VIEW `vw_file_upload_detail` AS select `f`.`id` AS `id`,`f`.`name` AS `name`,`f`.`location` AS `location`,`f`.`filetype` AS `filetype`,`f`.`organization_id` AS `organization_id`,`f`.`createdby` AS `createdby`,`f`.`modifiedby` AS `modifiedby`,`f`.`createdon` AS `createdon`,`f`.`modifiedon` AS `modifiedon`,date_format(`f`.`bill_date`,'%Y-%m-%d') AS `bill_date`,`o`.`name` AS `organization_name`,date_format(`f`.`createdon`,'%M') AS `month`,date_format(`f`.`createdon`,'%m') AS `monthval`,date_format(`f`.`createdon`,'%Y') AS `year` from (`file_upload` `f` join `organization` `o` on((`o`.`id` = `f`.`organization_id`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -229,7 +231,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vw_file_upload_month_year` AS select distinct date_format(`f`.`createdon`,'%M') AS `month`,date_format(`f`.`createdon`,'%m') AS `monthval`,date_format(`f`.`createdon`,'%Y') AS `year` from `file_upload` `f` order by `f`.`createdon` desc */;
+/*!50001 VIEW `vw_file_upload_month_year` AS select distinct date_format(`f`.`bill_date`,'%M') AS `month`,date_format(`f`.`bill_date`,'%m') AS `monthval`,date_format(`f`.`bill_date`,'%Y') AS `year` from `file_upload` `f` order by `f`.`createdon` desc */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -261,4 +263,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-03-17 23:31:16
+-- Dump completed on 2021-04-07  4:28:33
